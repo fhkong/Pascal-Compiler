@@ -1,0 +1,29 @@
+
+
+program xi;
+const a:=5,b:=6;阿飞的法律空间啊d
+var c,d;
+	procedure readarray(a,b);
+	const e := 7;
+	var f;发放较大
+	begin
+	
+		f:=7;
+		c := 2;
+		d := f-c;
+		if -5>6 then f:=c+d else f:=c/d;
+
+		while -5<=5 do
+		begin
+			a :=6;
+		end
+
+		read(a);
+		write(c+b);
+
+
+	end
+begin
+	call readarray(a,b);
+
+end参加撒龙卷风

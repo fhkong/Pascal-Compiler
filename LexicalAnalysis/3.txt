@@ -1,0 +1,42 @@
+program xi;adsfas
+const a:=15,b:=26;
+var c,d;
+	procedure readarray(c,b);
+	const e := 7;
+	var f;
+	begin
+		write(b);
+		write(c);
+		write(a);
+		
+		
+		f:=7;
+		write(f);
+		c := 2;
+		write(c);
+		d := f-c;
+		write(d);
+		if -5>6 then f:=c+d else f:=c/d;
+
+		write(f);
+		read(c);
+		while -5>c do
+		begin
+			read(c)
+		end;
+		read(c);
+		write(c+b);
+		write(c);
+		read(a);
+		write(a)
+	end
+begin
+	read(c);
+	write(c);
+	call readarray(a,b);
+	write(a);
+	write(b)
+end
+
+
+
