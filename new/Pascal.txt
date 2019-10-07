@@ -1,0 +1,34 @@
+<prog> -> program   id ; <block>
+<block> -> [<condecl>] [<vardecl>] [<proc>] <body>
+[<condecl>] -> <condecl> | $
+[<vardecl>] -> <vardecl> | $
+[<proc>] -> <proc> | $
+<condecl> -> const <const> {,<const>} ;
+{,<const>} -> , <const> {,<const>} | $
+<const> ->   id := id              
+<vardecl> -> var id {,id} ;
+<proc> -> procedure id ( [id{,id}] ) ; <block> {;<proc>}
+[id{,id}] -> id {,id} | $
+{;<proc>} -> ; <proc> {;<proc>} | $
+<body> -> begin <statement> {;<statement>} end
+{;<statement>} -> ; <statement> {;<statement>} | $
+<statement> -> id := <exp> | <statement_if> | <statement_while> | <statement_call> | <statement_read> | <statement_write> | <body>
+<statement_if> -> if <lexp> then <statement> [else<statement>]
+<statement_while> ->  while <lexp> do <statement>
+<statement_call> -> call id ( [<exp>{,<exp>}] )
+<statement_read> -> read ( id {,id} )
+<statement_write> -> write ( <exp> {,<exp>} )
+[else<statement>] -> else <statement> | $
+[<exp>{,<exp>}] -> <exp> {,<exp>} | $
+{,id} -> , id {,id} | $
+{,<exp>} -> , <exp> {,<exp>} | $
+<lexp> -> <exp> <lop> <exp> | odd <exp>
+<exp> -> [+|-] <term> {<aop><term>}
+[+|-] -> + | - | $
+{<aop><term>} -> <aop> <term> {<aop><term>} | $
+<term> -> <factor> {<mop><factor>}
+{<mop><factor>} -> <mop> <factor> {<mop><factor>} | $
+<factor> ->  id | ( <exp> )
+<lop> -> = | <> | < | <= | > | >=
+<aop> -> + | -
+<mop> -> * | /

@@ -1,0 +1,20 @@
+program xi;
+const t:=5;
+var c,d,f;
+	procedure readarray(a);
+	const e := 7;
+	var f;
+	begin
+		write(a);
+		read(f);
+		write(f)
+	end
+begin
+	read(f);
+	write(f);
+	call readarray(1);
+	write(f)
+
+
+
+

@@ -1,0 +1,1158 @@
+
+*********************************预测分析表******************************
+M[<prog>][program] = <prog>->programid;<block>
+M[<prog>][id] = 
+M[<prog>][;] = 
+M[<prog>][const] = 
+M[<prog>][,] = 
+M[<prog>][:=] = 
+M[<prog>][var] = 
+M[<prog>][procedure] = 
+M[<prog>][(] = 
+M[<prog>][)] = 
+M[<prog>][begin] = 
+M[<prog>][end] = 
+M[<prog>][if] = 
+M[<prog>][then] = 
+M[<prog>][while] = 
+M[<prog>][do] = 
+M[<prog>][call] = 
+M[<prog>][read] = 
+M[<prog>][write] = 
+M[<prog>][else] = 
+M[<prog>][odd] = 
+M[<prog>][+] = 
+M[<prog>][-] = 
+M[<prog>][=] = 
+M[<prog>][<>] = 
+M[<prog>][<] = 
+M[<prog>][<=] = 
+M[<prog>][>] = 
+M[<prog>][>=] = 
+M[<prog>][*] = 
+M[<prog>][/] = 
+M[<prog>][#] = 
+
+
+M[<block>][program] = 
+M[<block>][id] = 
+M[<block>][;] = 
+M[<block>][const] = <block>->[<condecl>][<vardecl>][<proc>]<body>
+M[<block>][,] = 
+M[<block>][:=] = 
+M[<block>][var] = <block>->[<condecl>][<vardecl>][<proc>]<body>
+M[<block>][procedure] = <block>->[<condecl>][<vardecl>][<proc>]<body>
+M[<block>][(] = 
+M[<block>][)] = 
+M[<block>][begin] = <block>->[<condecl>][<vardecl>][<proc>]<body>
+M[<block>][end] = 
+M[<block>][if] = 
+M[<block>][then] = 
+M[<block>][while] = 
+M[<block>][do] = 
+M[<block>][call] = 
+M[<block>][read] = 
+M[<block>][write] = 
+M[<block>][else] = 
+M[<block>][odd] = 
+M[<block>][+] = 
+M[<block>][-] = 
+M[<block>][=] = 
+M[<block>][<>] = 
+M[<block>][<] = 
+M[<block>][<=] = 
+M[<block>][>] = 
+M[<block>][>=] = 
+M[<block>][*] = 
+M[<block>][/] = 
+M[<block>][#] = 
+
+
+M[[<condecl>]][program] = 
+M[[<condecl>]][id] = 
+M[[<condecl>]][;] = 
+M[[<condecl>]][const] = [<condecl>]-><condecl>
+M[[<condecl>]][,] = 
+M[[<condecl>]][:=] = 
+M[[<condecl>]][var] = [<condecl>]->$
+M[[<condecl>]][procedure] = [<condecl>]->$
+M[[<condecl>]][(] = 
+M[[<condecl>]][)] = 
+M[[<condecl>]][begin] = [<condecl>]->$
+M[[<condecl>]][end] = 
+M[[<condecl>]][if] = 
+M[[<condecl>]][then] = 
+M[[<condecl>]][while] = 
+M[[<condecl>]][do] = 
+M[[<condecl>]][call] = 
+M[[<condecl>]][read] = 
+M[[<condecl>]][write] = 
+M[[<condecl>]][else] = 
+M[[<condecl>]][odd] = 
+M[[<condecl>]][+] = 
+M[[<condecl>]][-] = 
+M[[<condecl>]][=] = 
+M[[<condecl>]][<>] = 
+M[[<condecl>]][<] = 
+M[[<condecl>]][<=] = 
+M[[<condecl>]][>] = 
+M[[<condecl>]][>=] = 
+M[[<condecl>]][*] = 
+M[[<condecl>]][/] = 
+M[[<condecl>]][#] = 
+
+
+M[[<vardecl>]][program] = 
+M[[<vardecl>]][id] = 
+M[[<vardecl>]][;] = 
+M[[<vardecl>]][const] = 
+M[[<vardecl>]][,] = 
+M[[<vardecl>]][:=] = 
+M[[<vardecl>]][var] = [<vardecl>]-><vardecl>
+M[[<vardecl>]][procedure] = [<vardecl>]->$
+M[[<vardecl>]][(] = 
+M[[<vardecl>]][)] = 
+M[[<vardecl>]][begin] = [<vardecl>]->$
+M[[<vardecl>]][end] = 
+M[[<vardecl>]][if] = 
+M[[<vardecl>]][then] = 
+M[[<vardecl>]][while] = 
+M[[<vardecl>]][do] = 
+M[[<vardecl>]][call] = 
+M[[<vardecl>]][read] = 
+M[[<vardecl>]][write] = 
+M[[<vardecl>]][else] = 
+M[[<vardecl>]][odd] = 
+M[[<vardecl>]][+] = 
+M[[<vardecl>]][-] = 
+M[[<vardecl>]][=] = 
+M[[<vardecl>]][<>] = 
+M[[<vardecl>]][<] = 
+M[[<vardecl>]][<=] = 
+M[[<vardecl>]][>] = 
+M[[<vardecl>]][>=] = 
+M[[<vardecl>]][*] = 
+M[[<vardecl>]][/] = 
+M[[<vardecl>]][#] = 
+
+
+M[[<proc>]][program] = 
+M[[<proc>]][id] = 
+M[[<proc>]][;] = 
+M[[<proc>]][const] = 
+M[[<proc>]][,] = 
+M[[<proc>]][:=] = 
+M[[<proc>]][var] = 
+M[[<proc>]][procedure] = [<proc>]-><proc>
+M[[<proc>]][(] = 
+M[[<proc>]][)] = 
+M[[<proc>]][begin] = [<proc>]->$
+M[[<proc>]][end] = 
+M[[<proc>]][if] = 
+M[[<proc>]][then] = 
+M[[<proc>]][while] = 
+M[[<proc>]][do] = 
+M[[<proc>]][call] = 
+M[[<proc>]][read] = 
+M[[<proc>]][write] = 
+M[[<proc>]][else] = 
+M[[<proc>]][odd] = 
+M[[<proc>]][+] = 
+M[[<proc>]][-] = 
+M[[<proc>]][=] = 
+M[[<proc>]][<>] = 
+M[[<proc>]][<] = 
+M[[<proc>]][<=] = 
+M[[<proc>]][>] = 
+M[[<proc>]][>=] = 
+M[[<proc>]][*] = 
+M[[<proc>]][/] = 
+M[[<proc>]][#] = 
+
+
+M[<body>][program] = 
+M[<body>][id] = 
+M[<body>][;] = 
+M[<body>][const] = 
+M[<body>][,] = 
+M[<body>][:=] = 
+M[<body>][var] = 
+M[<body>][procedure] = 
+M[<body>][(] = 
+M[<body>][)] = 
+M[<body>][begin] = <body>->begin<statement>{;<statement>}end
+M[<body>][end] = 
+M[<body>][if] = 
+M[<body>][then] = 
+M[<body>][while] = 
+M[<body>][do] = 
+M[<body>][call] = 
+M[<body>][read] = 
+M[<body>][write] = 
+M[<body>][else] = 
+M[<body>][odd] = 
+M[<body>][+] = 
+M[<body>][-] = 
+M[<body>][=] = 
+M[<body>][<>] = 
+M[<body>][<] = 
+M[<body>][<=] = 
+M[<body>][>] = 
+M[<body>][>=] = 
+M[<body>][*] = 
+M[<body>][/] = 
+M[<body>][#] = 
+
+
+M[<condecl>][program] = 
+M[<condecl>][id] = 
+M[<condecl>][;] = 
+M[<condecl>][const] = <condecl>->const<const>{,<const>};
+M[<condecl>][,] = 
+M[<condecl>][:=] = 
+M[<condecl>][var] = 
+M[<condecl>][procedure] = 
+M[<condecl>][(] = 
+M[<condecl>][)] = 
+M[<condecl>][begin] = 
+M[<condecl>][end] = 
+M[<condecl>][if] = 
+M[<condecl>][then] = 
+M[<condecl>][while] = 
+M[<condecl>][do] = 
+M[<condecl>][call] = 
+M[<condecl>][read] = 
+M[<condecl>][write] = 
+M[<condecl>][else] = 
+M[<condecl>][odd] = 
+M[<condecl>][+] = 
+M[<condecl>][-] = 
+M[<condecl>][=] = 
+M[<condecl>][<>] = 
+M[<condecl>][<] = 
+M[<condecl>][<=] = 
+M[<condecl>][>] = 
+M[<condecl>][>=] = 
+M[<condecl>][*] = 
+M[<condecl>][/] = 
+M[<condecl>][#] = 
+
+
+M[<vardecl>][program] = 
+M[<vardecl>][id] = 
+M[<vardecl>][;] = 
+M[<vardecl>][const] = 
+M[<vardecl>][,] = 
+M[<vardecl>][:=] = 
+M[<vardecl>][var] = <vardecl>->varid{,id};
+M[<vardecl>][procedure] = 
+M[<vardecl>][(] = 
+M[<vardecl>][)] = 
+M[<vardecl>][begin] = 
+M[<vardecl>][end] = 
+M[<vardecl>][if] = 
+M[<vardecl>][then] = 
+M[<vardecl>][while] = 
+M[<vardecl>][do] = 
+M[<vardecl>][call] = 
+M[<vardecl>][read] = 
+M[<vardecl>][write] = 
+M[<vardecl>][else] = 
+M[<vardecl>][odd] = 
+M[<vardecl>][+] = 
+M[<vardecl>][-] = 
+M[<vardecl>][=] = 
+M[<vardecl>][<>] = 
+M[<vardecl>][<] = 
+M[<vardecl>][<=] = 
+M[<vardecl>][>] = 
+M[<vardecl>][>=] = 
+M[<vardecl>][*] = 
+M[<vardecl>][/] = 
+M[<vardecl>][#] = 
+
+
+M[<proc>][program] = 
+M[<proc>][id] = 
+M[<proc>][;] = 
+M[<proc>][const] = 
+M[<proc>][,] = 
+M[<proc>][:=] = 
+M[<proc>][var] = 
+M[<proc>][procedure] = <proc>->procedureid([id{,id}]);<block>{;<proc>}
+M[<proc>][(] = 
+M[<proc>][)] = 
+M[<proc>][begin] = 
+M[<proc>][end] = 
+M[<proc>][if] = 
+M[<proc>][then] = 
+M[<proc>][while] = 
+M[<proc>][do] = 
+M[<proc>][call] = 
+M[<proc>][read] = 
+M[<proc>][write] = 
+M[<proc>][else] = 
+M[<proc>][odd] = 
+M[<proc>][+] = 
+M[<proc>][-] = 
+M[<proc>][=] = 
+M[<proc>][<>] = 
+M[<proc>][<] = 
+M[<proc>][<=] = 
+M[<proc>][>] = 
+M[<proc>][>=] = 
+M[<proc>][*] = 
+M[<proc>][/] = 
+M[<proc>][#] = 
+
+
+M[<const>][program] = 
+M[<const>][id] = <const>->id:=id
+M[<const>][;] = 
+M[<const>][const] = 
+M[<const>][,] = 
+M[<const>][:=] = 
+M[<const>][var] = 
+M[<const>][procedure] = 
+M[<const>][(] = 
+M[<const>][)] = 
+M[<const>][begin] = 
+M[<const>][end] = 
+M[<const>][if] = 
+M[<const>][then] = 
+M[<const>][while] = 
+M[<const>][do] = 
+M[<const>][call] = 
+M[<const>][read] = 
+M[<const>][write] = 
+M[<const>][else] = 
+M[<const>][odd] = 
+M[<const>][+] = 
+M[<const>][-] = 
+M[<const>][=] = 
+M[<const>][<>] = 
+M[<const>][<] = 
+M[<const>][<=] = 
+M[<const>][>] = 
+M[<const>][>=] = 
+M[<const>][*] = 
+M[<const>][/] = 
+M[<const>][#] = 
+
+
+M[{,<const>}][program] = 
+M[{,<const>}][id] = 
+M[{,<const>}][;] = {,<const>}->$
+M[{,<const>}][const] = 
+M[{,<const>}][,] = {,<const>}->,<const>{,<const>}
+M[{,<const>}][:=] = 
+M[{,<const>}][var] = 
+M[{,<const>}][procedure] = 
+M[{,<const>}][(] = 
+M[{,<const>}][)] = 
+M[{,<const>}][begin] = 
+M[{,<const>}][end] = 
+M[{,<const>}][if] = 
+M[{,<const>}][then] = 
+M[{,<const>}][while] = 
+M[{,<const>}][do] = 
+M[{,<const>}][call] = 
+M[{,<const>}][read] = 
+M[{,<const>}][write] = 
+M[{,<const>}][else] = 
+M[{,<const>}][odd] = 
+M[{,<const>}][+] = 
+M[{,<const>}][-] = 
+M[{,<const>}][=] = 
+M[{,<const>}][<>] = 
+M[{,<const>}][<] = 
+M[{,<const>}][<=] = 
+M[{,<const>}][>] = 
+M[{,<const>}][>=] = 
+M[{,<const>}][*] = 
+M[{,<const>}][/] = 
+M[{,<const>}][#] = 
+
+
+M[{,id}][program] = 
+M[{,id}][id] = 
+M[{,id}][;] = {,id}->$
+M[{,id}][const] = 
+M[{,id}][,] = {,id}->,id{,id}
+M[{,id}][:=] = 
+M[{,id}][var] = 
+M[{,id}][procedure] = 
+M[{,id}][(] = 
+M[{,id}][)] = {,id}->$
+M[{,id}][begin] = 
+M[{,id}][end] = 
+M[{,id}][if] = 
+M[{,id}][then] = 
+M[{,id}][while] = 
+M[{,id}][do] = 
+M[{,id}][call] = 
+M[{,id}][read] = 
+M[{,id}][write] = 
+M[{,id}][else] = 
+M[{,id}][odd] = 
+M[{,id}][+] = 
+M[{,id}][-] = 
+M[{,id}][=] = 
+M[{,id}][<>] = 
+M[{,id}][<] = 
+M[{,id}][<=] = 
+M[{,id}][>] = 
+M[{,id}][>=] = 
+M[{,id}][*] = 
+M[{,id}][/] = 
+M[{,id}][#] = 
+
+
+M[[id{,id}]][program] = 
+M[[id{,id}]][id] = [id{,id}]->id{,id}
+M[[id{,id}]][;] = 
+M[[id{,id}]][const] = 
+M[[id{,id}]][,] = 
+M[[id{,id}]][:=] = 
+M[[id{,id}]][var] = 
+M[[id{,id}]][procedure] = 
+M[[id{,id}]][(] = 
+M[[id{,id}]][)] = [id{,id}]->$
+M[[id{,id}]][begin] = 
+M[[id{,id}]][end] = 
+M[[id{,id}]][if] = 
+M[[id{,id}]][then] = 
+M[[id{,id}]][while] = 
+M[[id{,id}]][do] = 
+M[[id{,id}]][call] = 
+M[[id{,id}]][read] = 
+M[[id{,id}]][write] = 
+M[[id{,id}]][else] = 
+M[[id{,id}]][odd] = 
+M[[id{,id}]][+] = 
+M[[id{,id}]][-] = 
+M[[id{,id}]][=] = 
+M[[id{,id}]][<>] = 
+M[[id{,id}]][<] = 
+M[[id{,id}]][<=] = 
+M[[id{,id}]][>] = 
+M[[id{,id}]][>=] = 
+M[[id{,id}]][*] = 
+M[[id{,id}]][/] = 
+M[[id{,id}]][#] = 
+
+
+M[{;<proc>}][program] = 
+M[{;<proc>}][id] = 
+M[{;<proc>}][;] = {;<proc>}->$
+M[{;<proc>}][const] = 
+M[{;<proc>}][,] = 
+M[{;<proc>}][:=] = 
+M[{;<proc>}][var] = 
+M[{;<proc>}][procedure] = 
+M[{;<proc>}][(] = 
+M[{;<proc>}][)] = 
+M[{;<proc>}][begin] = {;<proc>}->$
+M[{;<proc>}][end] = 
+M[{;<proc>}][if] = 
+M[{;<proc>}][then] = 
+M[{;<proc>}][while] = 
+M[{;<proc>}][do] = 
+M[{;<proc>}][call] = 
+M[{;<proc>}][read] = 
+M[{;<proc>}][write] = 
+M[{;<proc>}][else] = 
+M[{;<proc>}][odd] = 
+M[{;<proc>}][+] = 
+M[{;<proc>}][-] = 
+M[{;<proc>}][=] = 
+M[{;<proc>}][<>] = 
+M[{;<proc>}][<] = 
+M[{;<proc>}][<=] = 
+M[{;<proc>}][>] = 
+M[{;<proc>}][>=] = 
+M[{;<proc>}][*] = 
+M[{;<proc>}][/] = 
+M[{;<proc>}][#] = 
+
+
+M[<statement>][program] = 
+M[<statement>][id] = <statement>->id:=<exp>
+M[<statement>][;] = 
+M[<statement>][const] = 
+M[<statement>][,] = 
+M[<statement>][:=] = 
+M[<statement>][var] = 
+M[<statement>][procedure] = 
+M[<statement>][(] = 
+M[<statement>][)] = 
+M[<statement>][begin] = <statement>-><body>
+M[<statement>][end] = 
+M[<statement>][if] = <statement>-><statement_if>
+M[<statement>][then] = 
+M[<statement>][while] = <statement>-><statement_while>
+M[<statement>][do] = 
+M[<statement>][call] = <statement>-><statement_call>
+M[<statement>][read] = <statement>-><statement_read>
+M[<statement>][write] = <statement>-><statement_write>
+M[<statement>][else] = 
+M[<statement>][odd] = 
+M[<statement>][+] = 
+M[<statement>][-] = 
+M[<statement>][=] = 
+M[<statement>][<>] = 
+M[<statement>][<] = 
+M[<statement>][<=] = 
+M[<statement>][>] = 
+M[<statement>][>=] = 
+M[<statement>][*] = 
+M[<statement>][/] = 
+M[<statement>][#] = 
+
+
+M[{;<statement>}][program] = 
+M[{;<statement>}][id] = 
+M[{;<statement>}][;] = {;<statement>}->;<statement>{;<statement>}
+M[{;<statement>}][const] = 
+M[{;<statement>}][,] = 
+M[{;<statement>}][:=] = 
+M[{;<statement>}][var] = 
+M[{;<statement>}][procedure] = 
+M[{;<statement>}][(] = 
+M[{;<statement>}][)] = 
+M[{;<statement>}][begin] = 
+M[{;<statement>}][end] = {;<statement>}->$
+M[{;<statement>}][if] = 
+M[{;<statement>}][then] = 
+M[{;<statement>}][while] = 
+M[{;<statement>}][do] = 
+M[{;<statement>}][call] = 
+M[{;<statement>}][read] = 
+M[{;<statement>}][write] = 
+M[{;<statement>}][else] = 
+M[{;<statement>}][odd] = 
+M[{;<statement>}][+] = 
+M[{;<statement>}][-] = 
+M[{;<statement>}][=] = 
+M[{;<statement>}][<>] = 
+M[{;<statement>}][<] = 
+M[{;<statement>}][<=] = 
+M[{;<statement>}][>] = 
+M[{;<statement>}][>=] = 
+M[{;<statement>}][*] = 
+M[{;<statement>}][/] = 
+M[{;<statement>}][#] = 
+
+
+M[<exp>][program] = 
+M[<exp>][id] = <exp>->[+|-]<term>{<aop><term>}
+M[<exp>][;] = 
+M[<exp>][const] = 
+M[<exp>][,] = 
+M[<exp>][:=] = 
+M[<exp>][var] = 
+M[<exp>][procedure] = 
+M[<exp>][(] = <exp>->[+|-]<term>{<aop><term>}
+M[<exp>][)] = 
+M[<exp>][begin] = 
+M[<exp>][end] = 
+M[<exp>][if] = 
+M[<exp>][then] = 
+M[<exp>][while] = 
+M[<exp>][do] = 
+M[<exp>][call] = 
+M[<exp>][read] = 
+M[<exp>][write] = 
+M[<exp>][else] = 
+M[<exp>][odd] = 
+M[<exp>][+] = <exp>->[+|-]<term>{<aop><term>}
+M[<exp>][-] = <exp>->[+|-]<term>{<aop><term>}
+M[<exp>][=] = 
+M[<exp>][<>] = 
+M[<exp>][<] = 
+M[<exp>][<=] = 
+M[<exp>][>] = 
+M[<exp>][>=] = 
+M[<exp>][*] = 
+M[<exp>][/] = 
+M[<exp>][#] = 
+
+
+M[<statement_if>][program] = 
+M[<statement_if>][id] = 
+M[<statement_if>][;] = 
+M[<statement_if>][const] = 
+M[<statement_if>][,] = 
+M[<statement_if>][:=] = 
+M[<statement_if>][var] = 
+M[<statement_if>][procedure] = 
+M[<statement_if>][(] = 
+M[<statement_if>][)] = 
+M[<statement_if>][begin] = 
+M[<statement_if>][end] = 
+M[<statement_if>][if] = <statement_if>->if<lexp>then<statement>[else<statement>]
+M[<statement_if>][then] = 
+M[<statement_if>][while] = 
+M[<statement_if>][do] = 
+M[<statement_if>][call] = 
+M[<statement_if>][read] = 
+M[<statement_if>][write] = 
+M[<statement_if>][else] = 
+M[<statement_if>][odd] = 
+M[<statement_if>][+] = 
+M[<statement_if>][-] = 
+M[<statement_if>][=] = 
+M[<statement_if>][<>] = 
+M[<statement_if>][<] = 
+M[<statement_if>][<=] = 
+M[<statement_if>][>] = 
+M[<statement_if>][>=] = 
+M[<statement_if>][*] = 
+M[<statement_if>][/] = 
+M[<statement_if>][#] = 
+
+
+M[<statement_while>][program] = 
+M[<statement_while>][id] = 
+M[<statement_while>][;] = 
+M[<statement_while>][const] = 
+M[<statement_while>][,] = 
+M[<statement_while>][:=] = 
+M[<statement_while>][var] = 
+M[<statement_while>][procedure] = 
+M[<statement_while>][(] = 
+M[<statement_while>][)] = 
+M[<statement_while>][begin] = 
+M[<statement_while>][end] = 
+M[<statement_while>][if] = 
+M[<statement_while>][then] = 
+M[<statement_while>][while] = <statement_while>->while<lexp>do<statement>
+M[<statement_while>][do] = 
+M[<statement_while>][call] = 
+M[<statement_while>][read] = 
+M[<statement_while>][write] = 
+M[<statement_while>][else] = 
+M[<statement_while>][odd] = 
+M[<statement_while>][+] = 
+M[<statement_while>][-] = 
+M[<statement_while>][=] = 
+M[<statement_while>][<>] = 
+M[<statement_while>][<] = 
+M[<statement_while>][<=] = 
+M[<statement_while>][>] = 
+M[<statement_while>][>=] = 
+M[<statement_while>][*] = 
+M[<statement_while>][/] = 
+M[<statement_while>][#] = 
+
+
+M[<statement_call>][program] = 
+M[<statement_call>][id] = 
+M[<statement_call>][;] = 
+M[<statement_call>][const] = 
+M[<statement_call>][,] = 
+M[<statement_call>][:=] = 
+M[<statement_call>][var] = 
+M[<statement_call>][procedure] = 
+M[<statement_call>][(] = 
+M[<statement_call>][)] = 
+M[<statement_call>][begin] = 
+M[<statement_call>][end] = 
+M[<statement_call>][if] = 
+M[<statement_call>][then] = 
+M[<statement_call>][while] = 
+M[<statement_call>][do] = 
+M[<statement_call>][call] = <statement_call>->callid([<exp>{,<exp>}])
+M[<statement_call>][read] = 
+M[<statement_call>][write] = 
+M[<statement_call>][else] = 
+M[<statement_call>][odd] = 
+M[<statement_call>][+] = 
+M[<statement_call>][-] = 
+M[<statement_call>][=] = 
+M[<statement_call>][<>] = 
+M[<statement_call>][<] = 
+M[<statement_call>][<=] = 
+M[<statement_call>][>] = 
+M[<statement_call>][>=] = 
+M[<statement_call>][*] = 
+M[<statement_call>][/] = 
+M[<statement_call>][#] = 
+
+
+M[<statement_read>][program] = 
+M[<statement_read>][id] = 
+M[<statement_read>][;] = 
+M[<statement_read>][const] = 
+M[<statement_read>][,] = 
+M[<statement_read>][:=] = 
+M[<statement_read>][var] = 
+M[<statement_read>][procedure] = 
+M[<statement_read>][(] = 
+M[<statement_read>][)] = 
+M[<statement_read>][begin] = 
+M[<statement_read>][end] = 
+M[<statement_read>][if] = 
+M[<statement_read>][then] = 
+M[<statement_read>][while] = 
+M[<statement_read>][do] = 
+M[<statement_read>][call] = 
+M[<statement_read>][read] = <statement_read>->read(id{,id})
+M[<statement_read>][write] = 
+M[<statement_read>][else] = 
+M[<statement_read>][odd] = 
+M[<statement_read>][+] = 
+M[<statement_read>][-] = 
+M[<statement_read>][=] = 
+M[<statement_read>][<>] = 
+M[<statement_read>][<] = 
+M[<statement_read>][<=] = 
+M[<statement_read>][>] = 
+M[<statement_read>][>=] = 
+M[<statement_read>][*] = 
+M[<statement_read>][/] = 
+M[<statement_read>][#] = 
+
+
+M[<statement_write>][program] = 
+M[<statement_write>][id] = 
+M[<statement_write>][;] = 
+M[<statement_write>][const] = 
+M[<statement_write>][,] = 
+M[<statement_write>][:=] = 
+M[<statement_write>][var] = 
+M[<statement_write>][procedure] = 
+M[<statement_write>][(] = 
+M[<statement_write>][)] = 
+M[<statement_write>][begin] = 
+M[<statement_write>][end] = 
+M[<statement_write>][if] = 
+M[<statement_write>][then] = 
+M[<statement_write>][while] = 
+M[<statement_write>][do] = 
+M[<statement_write>][call] = 
+M[<statement_write>][read] = 
+M[<statement_write>][write] = <statement_write>->write(<exp>{,<exp>})
+M[<statement_write>][else] = 
+M[<statement_write>][odd] = 
+M[<statement_write>][+] = 
+M[<statement_write>][-] = 
+M[<statement_write>][=] = 
+M[<statement_write>][<>] = 
+M[<statement_write>][<] = 
+M[<statement_write>][<=] = 
+M[<statement_write>][>] = 
+M[<statement_write>][>=] = 
+M[<statement_write>][*] = 
+M[<statement_write>][/] = 
+M[<statement_write>][#] = 
+
+
+M[<lexp>][program] = 
+M[<lexp>][id] = <lexp>-><exp><lop><exp>
+M[<lexp>][;] = 
+M[<lexp>][const] = 
+M[<lexp>][,] = 
+M[<lexp>][:=] = 
+M[<lexp>][var] = 
+M[<lexp>][procedure] = 
+M[<lexp>][(] = <lexp>-><exp><lop><exp>
+M[<lexp>][)] = 
+M[<lexp>][begin] = 
+M[<lexp>][end] = 
+M[<lexp>][if] = 
+M[<lexp>][then] = 
+M[<lexp>][while] = 
+M[<lexp>][do] = 
+M[<lexp>][call] = 
+M[<lexp>][read] = 
+M[<lexp>][write] = 
+M[<lexp>][else] = 
+M[<lexp>][odd] = <lexp>->odd<exp>
+M[<lexp>][+] = <lexp>-><exp><lop><exp>
+M[<lexp>][-] = <lexp>-><exp><lop><exp>
+M[<lexp>][=] = 
+M[<lexp>][<>] = 
+M[<lexp>][<] = 
+M[<lexp>][<=] = 
+M[<lexp>][>] = 
+M[<lexp>][>=] = 
+M[<lexp>][*] = 
+M[<lexp>][/] = 
+M[<lexp>][#] = 
+
+
+M[[else<statement>]][program] = 
+M[[else<statement>]][id] = 
+M[[else<statement>]][;] = [else<statement>]->$
+M[[else<statement>]][const] = 
+M[[else<statement>]][,] = 
+M[[else<statement>]][:=] = 
+M[[else<statement>]][var] = 
+M[[else<statement>]][procedure] = 
+M[[else<statement>]][(] = 
+M[[else<statement>]][)] = 
+M[[else<statement>]][begin] = 
+M[[else<statement>]][end] = [else<statement>]->$
+M[[else<statement>]][if] = 
+M[[else<statement>]][then] = 
+M[[else<statement>]][while] = 
+M[[else<statement>]][do] = [else<statement>]->$
+M[[else<statement>]][call] = 
+M[[else<statement>]][read] = 
+M[[else<statement>]][write] = 
+M[[else<statement>]][else] = [else<statement>]->$
+M[[else<statement>]][odd] = 
+M[[else<statement>]][+] = 
+M[[else<statement>]][-] = 
+M[[else<statement>]][=] = 
+M[[else<statement>]][<>] = 
+M[[else<statement>]][<] = 
+M[[else<statement>]][<=] = 
+M[[else<statement>]][>] = 
+M[[else<statement>]][>=] = 
+M[[else<statement>]][*] = 
+M[[else<statement>]][/] = 
+M[[else<statement>]][#] = 
+
+
+M[[<exp>{,<exp>}]][program] = 
+M[[<exp>{,<exp>}]][id] = [<exp>{,<exp>}]-><exp>{,<exp>}
+M[[<exp>{,<exp>}]][;] = 
+M[[<exp>{,<exp>}]][const] = 
+M[[<exp>{,<exp>}]][,] = 
+M[[<exp>{,<exp>}]][:=] = 
+M[[<exp>{,<exp>}]][var] = 
+M[[<exp>{,<exp>}]][procedure] = 
+M[[<exp>{,<exp>}]][(] = [<exp>{,<exp>}]-><exp>{,<exp>}
+M[[<exp>{,<exp>}]][)] = [<exp>{,<exp>}]->$
+M[[<exp>{,<exp>}]][begin] = 
+M[[<exp>{,<exp>}]][end] = 
+M[[<exp>{,<exp>}]][if] = 
+M[[<exp>{,<exp>}]][then] = 
+M[[<exp>{,<exp>}]][while] = 
+M[[<exp>{,<exp>}]][do] = 
+M[[<exp>{,<exp>}]][call] = 
+M[[<exp>{,<exp>}]][read] = 
+M[[<exp>{,<exp>}]][write] = 
+M[[<exp>{,<exp>}]][else] = 
+M[[<exp>{,<exp>}]][odd] = 
+M[[<exp>{,<exp>}]][+] = [<exp>{,<exp>}]-><exp>{,<exp>}
+M[[<exp>{,<exp>}]][-] = [<exp>{,<exp>}]-><exp>{,<exp>}
+M[[<exp>{,<exp>}]][=] = 
+M[[<exp>{,<exp>}]][<>] = 
+M[[<exp>{,<exp>}]][<] = 
+M[[<exp>{,<exp>}]][<=] = 
+M[[<exp>{,<exp>}]][>] = 
+M[[<exp>{,<exp>}]][>=] = 
+M[[<exp>{,<exp>}]][*] = 
+M[[<exp>{,<exp>}]][/] = 
+M[[<exp>{,<exp>}]][#] = 
+
+
+M[{,<exp>}][program] = 
+M[{,<exp>}][id] = 
+M[{,<exp>}][;] = 
+M[{,<exp>}][const] = 
+M[{,<exp>}][,] = {,<exp>}->,<exp>{,<exp>}
+M[{,<exp>}][:=] = 
+M[{,<exp>}][var] = 
+M[{,<exp>}][procedure] = 
+M[{,<exp>}][(] = 
+M[{,<exp>}][)] = {,<exp>}->$
+M[{,<exp>}][begin] = 
+M[{,<exp>}][end] = 
+M[{,<exp>}][if] = 
+M[{,<exp>}][then] = 
+M[{,<exp>}][while] = 
+M[{,<exp>}][do] = 
+M[{,<exp>}][call] = 
+M[{,<exp>}][read] = 
+M[{,<exp>}][write] = 
+M[{,<exp>}][else] = 
+M[{,<exp>}][odd] = 
+M[{,<exp>}][+] = 
+M[{,<exp>}][-] = 
+M[{,<exp>}][=] = 
+M[{,<exp>}][<>] = 
+M[{,<exp>}][<] = 
+M[{,<exp>}][<=] = 
+M[{,<exp>}][>] = 
+M[{,<exp>}][>=] = 
+M[{,<exp>}][*] = 
+M[{,<exp>}][/] = 
+M[{,<exp>}][#] = 
+
+
+M[<lop>][program] = 
+M[<lop>][id] = 
+M[<lop>][;] = 
+M[<lop>][const] = 
+M[<lop>][,] = 
+M[<lop>][:=] = 
+M[<lop>][var] = 
+M[<lop>][procedure] = 
+M[<lop>][(] = 
+M[<lop>][)] = 
+M[<lop>][begin] = 
+M[<lop>][end] = 
+M[<lop>][if] = 
+M[<lop>][then] = 
+M[<lop>][while] = 
+M[<lop>][do] = 
+M[<lop>][call] = 
+M[<lop>][read] = 
+M[<lop>][write] = 
+M[<lop>][else] = 
+M[<lop>][odd] = 
+M[<lop>][+] = 
+M[<lop>][-] = 
+M[<lop>][=] = <lop>->=
+M[<lop>][<>] = <lop>-><>
+M[<lop>][<] = <lop>-><
+M[<lop>][<=] = <lop>-><=
+M[<lop>][>] = <lop>->>
+M[<lop>][>=] = <lop>->>=
+M[<lop>][*] = 
+M[<lop>][/] = 
+M[<lop>][#] = 
+
+
+M[[+|-]][program] = 
+M[[+|-]][id] = [+|-]->$
+M[[+|-]][;] = 
+M[[+|-]][const] = 
+M[[+|-]][,] = 
+M[[+|-]][:=] = 
+M[[+|-]][var] = 
+M[[+|-]][procedure] = 
+M[[+|-]][(] = [+|-]->$
+M[[+|-]][)] = 
+M[[+|-]][begin] = 
+M[[+|-]][end] = 
+M[[+|-]][if] = 
+M[[+|-]][then] = 
+M[[+|-]][while] = 
+M[[+|-]][do] = 
+M[[+|-]][call] = 
+M[[+|-]][read] = 
+M[[+|-]][write] = 
+M[[+|-]][else] = 
+M[[+|-]][odd] = 
+M[[+|-]][+] = [+|-]->+
+M[[+|-]][-] = [+|-]->-
+M[[+|-]][=] = 
+M[[+|-]][<>] = 
+M[[+|-]][<] = 
+M[[+|-]][<=] = 
+M[[+|-]][>] = 
+M[[+|-]][>=] = 
+M[[+|-]][*] = 
+M[[+|-]][/] = 
+M[[+|-]][#] = 
+
+
+M[<term>][program] = 
+M[<term>][id] = <term>-><factor>{<mop><factor>}
+M[<term>][;] = 
+M[<term>][const] = 
+M[<term>][,] = 
+M[<term>][:=] = 
+M[<term>][var] = 
+M[<term>][procedure] = 
+M[<term>][(] = <term>-><factor>{<mop><factor>}
+M[<term>][)] = 
+M[<term>][begin] = 
+M[<term>][end] = 
+M[<term>][if] = 
+M[<term>][then] = 
+M[<term>][while] = 
+M[<term>][do] = 
+M[<term>][call] = 
+M[<term>][read] = 
+M[<term>][write] = 
+M[<term>][else] = 
+M[<term>][odd] = 
+M[<term>][+] = 
+M[<term>][-] = 
+M[<term>][=] = 
+M[<term>][<>] = 
+M[<term>][<] = 
+M[<term>][<=] = 
+M[<term>][>] = 
+M[<term>][>=] = 
+M[<term>][*] = 
+M[<term>][/] = 
+M[<term>][#] = 
+
+
+M[{<aop><term>}][program] = 
+M[{<aop><term>}][id] = 
+M[{<aop><term>}][;] = {<aop><term>}->$
+M[{<aop><term>}][const] = 
+M[{<aop><term>}][,] = {<aop><term>}->$
+M[{<aop><term>}][:=] = 
+M[{<aop><term>}][var] = 
+M[{<aop><term>}][procedure] = 
+M[{<aop><term>}][(] = 
+M[{<aop><term>}][)] = {<aop><term>}->$
+M[{<aop><term>}][begin] = 
+M[{<aop><term>}][end] = {<aop><term>}->$
+M[{<aop><term>}][if] = 
+M[{<aop><term>}][then] = {<aop><term>}->$
+M[{<aop><term>}][while] = 
+M[{<aop><term>}][do] = {<aop><term>}->$
+M[{<aop><term>}][call] = 
+M[{<aop><term>}][read] = 
+M[{<aop><term>}][write] = 
+M[{<aop><term>}][else] = {<aop><term>}->$
+M[{<aop><term>}][odd] = 
+M[{<aop><term>}][+] = {<aop><term>}-><aop><term>{<aop><term>}
+M[{<aop><term>}][-] = {<aop><term>}-><aop><term>{<aop><term>}
+M[{<aop><term>}][=] = {<aop><term>}->$
+M[{<aop><term>}][<>] = {<aop><term>}->$
+M[{<aop><term>}][<] = {<aop><term>}->$
+M[{<aop><term>}][<=] = {<aop><term>}->$
+M[{<aop><term>}][>] = {<aop><term>}->$
+M[{<aop><term>}][>=] = {<aop><term>}->$
+M[{<aop><term>}][*] = 
+M[{<aop><term>}][/] = 
+M[{<aop><term>}][#] = 
+
+
+M[<aop>][program] = 
+M[<aop>][id] = 
+M[<aop>][;] = 
+M[<aop>][const] = 
+M[<aop>][,] = 
+M[<aop>][:=] = 
+M[<aop>][var] = 
+M[<aop>][procedure] = 
+M[<aop>][(] = 
+M[<aop>][)] = 
+M[<aop>][begin] = 
+M[<aop>][end] = 
+M[<aop>][if] = 
+M[<aop>][then] = 
+M[<aop>][while] = 
+M[<aop>][do] = 
+M[<aop>][call] = 
+M[<aop>][read] = 
+M[<aop>][write] = 
+M[<aop>][else] = 
+M[<aop>][odd] = 
+M[<aop>][+] = <aop>->+
+M[<aop>][-] = <aop>->-
+M[<aop>][=] = 
+M[<aop>][<>] = 
+M[<aop>][<] = 
+M[<aop>][<=] = 
+M[<aop>][>] = 
+M[<aop>][>=] = 
+M[<aop>][*] = 
+M[<aop>][/] = 
+M[<aop>][#] = 
+
+
+M[<factor>][program] = 
+M[<factor>][id] = <factor>->id
+M[<factor>][;] = 
+M[<factor>][const] = 
+M[<factor>][,] = 
+M[<factor>][:=] = 
+M[<factor>][var] = 
+M[<factor>][procedure] = 
+M[<factor>][(] = <factor>->(<exp>)
+M[<factor>][)] = 
+M[<factor>][begin] = 
+M[<factor>][end] = 
+M[<factor>][if] = 
+M[<factor>][then] = 
+M[<factor>][while] = 
+M[<factor>][do] = 
+M[<factor>][call] = 
+M[<factor>][read] = 
+M[<factor>][write] = 
+M[<factor>][else] = 
+M[<factor>][odd] = 
+M[<factor>][+] = 
+M[<factor>][-] = 
+M[<factor>][=] = 
+M[<factor>][<>] = 
+M[<factor>][<] = 
+M[<factor>][<=] = 
+M[<factor>][>] = 
+M[<factor>][>=] = 
+M[<factor>][*] = 
+M[<factor>][/] = 
+M[<factor>][#] = 
+
+
+M[{<mop><factor>}][program] = 
+M[{<mop><factor>}][id] = 
+M[{<mop><factor>}][;] = {<mop><factor>}->$
+M[{<mop><factor>}][const] = 
+M[{<mop><factor>}][,] = {<mop><factor>}->$
+M[{<mop><factor>}][:=] = 
+M[{<mop><factor>}][var] = 
+M[{<mop><factor>}][procedure] = 
+M[{<mop><factor>}][(] = 
+M[{<mop><factor>}][)] = {<mop><factor>}->$
+M[{<mop><factor>}][begin] = 
+M[{<mop><factor>}][end] = {<mop><factor>}->$
+M[{<mop><factor>}][if] = 
+M[{<mop><factor>}][then] = {<mop><factor>}->$
+M[{<mop><factor>}][while] = 
+M[{<mop><factor>}][do] = {<mop><factor>}->$
+M[{<mop><factor>}][call] = 
+M[{<mop><factor>}][read] = 
+M[{<mop><factor>}][write] = 
+M[{<mop><factor>}][else] = {<mop><factor>}->$
+M[{<mop><factor>}][odd] = 
+M[{<mop><factor>}][+] = {<mop><factor>}->$
+M[{<mop><factor>}][-] = {<mop><factor>}->$
+M[{<mop><factor>}][=] = {<mop><factor>}->$
+M[{<mop><factor>}][<>] = {<mop><factor>}->$
+M[{<mop><factor>}][<] = {<mop><factor>}->$
+M[{<mop><factor>}][<=] = {<mop><factor>}->$
+M[{<mop><factor>}][>] = {<mop><factor>}->$
+M[{<mop><factor>}][>=] = {<mop><factor>}->$
+M[{<mop><factor>}][*] = {<mop><factor>}-><mop><factor>{<mop><factor>}
+M[{<mop><factor>}][/] = {<mop><factor>}-><mop><factor>{<mop><factor>}
+M[{<mop><factor>}][#] = 
+
+
+M[<mop>][program] = 
+M[<mop>][id] = 
+M[<mop>][;] = 
+M[<mop>][const] = 
+M[<mop>][,] = 
+M[<mop>][:=] = 
+M[<mop>][var] = 
+M[<mop>][procedure] = 
+M[<mop>][(] = 
+M[<mop>][)] = 
+M[<mop>][begin] = 
+M[<mop>][end] = 
+M[<mop>][if] = 
+M[<mop>][then] = 
+M[<mop>][while] = 
+M[<mop>][do] = 
+M[<mop>][call] = 
+M[<mop>][read] = 
+M[<mop>][write] = 
+M[<mop>][else] = 
+M[<mop>][odd] = 
+M[<mop>][+] = 
+M[<mop>][-] = 
+M[<mop>][=] = 
+M[<mop>][<>] = 
+M[<mop>][<] = 
+M[<mop>][<=] = 
+M[<mop>][>] = 
+M[<mop>][>=] = 
+M[<mop>][*] = <mop>->*
+M[<mop>][/] = <mop>->/
+M[<mop>][#] = 
+
+

@@ -1,0 +1,210 @@
+*****************KeyMap initial is ok!***************
+***************OperMap initial is ok!****************
+****************SpecialMap initial is ok!*************
+*************BoundaryMap initial is ok!*****************
+****************Pascal Grammar*******************
+<prog> -> program id ; <block> 
+<block> -> [<condecl>] [<vardecl>] [<proc>] <body> 
+[<condecl>] -> <condecl> 
+[<condecl>] -> $ 
+[<vardecl>] -> <vardecl> 
+[<vardecl>] -> $ 
+[<proc>] -> <proc> 
+[<proc>] -> $ 
+<condecl> -> const <const> {,<const>} ; 
+{,<const>} -> ; <const> {,<const>} 
+{,<const>} -> $ 
+<const> -> id := id 
+<vardecl> -> var id {,id} ; 
+<proc> -> procedure id ( [id{,id}] ) ; <block> {;<proc>} 
+[id{,id}] -> id {,id} 
+[id{,id}] -> $ 
+{;<proc>} -> ; <proc> {;<proc>} 
+{;<proc>} -> $ 
+<body> -> begin <statement> {;<statement>} end 
+{;<statement>} -> ; <statement> {;<statement>} 
+{;<statement>} -> $ 
+<statement> -> id := <exp> 
+<statement> -> <statement_if> 
+<statement> -> <statement_while> 
+<statement> -> <statement_call> 
+<statement> -> <statement_read> 
+<statement> -> <statement_write> 
+<statement> -> <body> 
+<statement_if> -> if <lexp> then <statement> [else<statement>] 
+<statement_while> -> while <lexp> do <statement> 
+<statement_call> -> call id ( [<exp>{,<exp>}] ) 
+<statement_read> -> read ( id {,id} ) 
+<statement_write> -> write ( <exp> {,<exp>} ) 
+[else<statement>] -> else <statement> 
+[else<statement>] -> $ 
+[<exp>{,<exp>}] -> <exp> {,<exp>} 
+[<exp>{,<exp>}] -> $ 
+{,id} -> ; id {,id} 
+{,id} -> $ 
+{,<exp>} -> ; <exp> {,<exp>} 
+{,<exp>} -> $ 
+<lexp> -> <exp> <lop> <exp> 
+<lexp> -> odd <exp> 
+<exp> -> [+|-] <term> {<aop><term>} 
+[+|-] -> + 
+[+|-] -> - 
+[+|-] -> $ 
+{<aop><term>} -> <aop> <term> {<aop><term>} 
+{<aop><term>} -> $ 
+<term> -> <factor> {<mop><factor>} 
+{<mop><factor>} -> <mop> <factor> {<mop><factor>} 
+{<mop><factor>} -> $ 
+<factor> -> id 
+<factor> -> ( <exp> ) 
+<lop> -> = 
+<lop> -> <> 
+<lop> -> < 
+<lop> -> <= 
+<lop> -> > 
+<lop> -> >= 
+<aop> -> + 
+<aop> -> - 
+<mop> -> * 
+<mop> -> / 
+***************Terminal char******************
+program id ; const , := var procedure ( ) begin end if then while do call read write else odd + - = <> < <= > >= * / 
+**************NorTerminal char****************
+<prog> <block> [<condecl>] [<vardecl>] [<proc>] <body> <condecl> <vardecl> <proc> <const> {,<const>} {,id} [id{,id}] {;<proc>} <statement> {;<statement>} <exp> <statement_if> <statement_while> <statement_call> <statement_read> <statement_write> <lexp> [else<statement>] [<exp>{,<exp>}] {,<exp>} <lop> [+|-] <term> {<aop><term>} <aop> <factor> {<mop><factor>} <mop> 
+************************************First******************************
+FIRST[<prog>] = program 
+FIRST[<block>] = const var procedure begin 
+FIRST[[<condecl>]] = const $ 
+FIRST[[<vardecl>]] = var $ 
+FIRST[[<proc>]] = procedure $ 
+FIRST[<body>] = begin 
+FIRST[<condecl>] = const 
+FIRST[<vardecl>] = var 
+FIRST[<proc>] = procedure 
+FIRST[<const>] = id 
+FIRST[{,<const>}] = ; $ 
+FIRST[{,id}] = ; $ 
+FIRST[[id{,id}]] = id $ 
+FIRST[{;<proc>}] = ; $ 
+FIRST[<statement>] = id if while call read write begin 
+FIRST[{;<statement>}] = ; $ 
+FIRST[<exp>] = + - id ( 
+FIRST[<statement_if>] = if 
+FIRST[<statement_while>] = while 
+FIRST[<statement_call>] = call 
+FIRST[<statement_read>] = read 
+FIRST[<statement_write>] = write 
+FIRST[<lexp>] = + - id ( odd 
+FIRST[[else<statement>]] = else $ 
+FIRST[[<exp>{,<exp>}]] = + - id ( $ 
+FIRST[{,<exp>}] = ; $ 
+FIRST[<lop>] = = <> < <= > >= 
+FIRST[[+|-]] = + - $ 
+FIRST[<term>] = id ( 
+FIRST[{<aop><term>}] = + - $ 
+FIRST[<aop>] = + - 
+FIRST[<factor>] = id ( 
+FIRST[{<mop><factor>}] = * / $ 
+FIRST[<mop>] = * / 
+************************************Follow******************************
+FOLLOW[<prog>] = # 
+FOLLOW[<block>] = # begin ; 
+FOLLOW[[<condecl>]] = var procedure begin 
+FOLLOW[[<vardecl>]] = procedure begin 
+FOLLOW[[<proc>]] = begin 
+FOLLOW[<body>] = # begin ; do end else 
+FOLLOW[<condecl>] = var procedure begin 
+FOLLOW[<vardecl>] = procedure begin 
+FOLLOW[<proc>] = begin ; 
+FOLLOW[<const>] = ; begin 
+FOLLOW[{,<const>}] = ; 
+FOLLOW[{,id}] = ; ) 
+FOLLOW[[id{,id}]] = ) 
+FOLLOW[{;<proc>}] = begin ; 
+FOLLOW[<statement>] = ; do end else 
+FOLLOW[{;<statement>}] = end 
+FOLLOW[<exp>] = ; do end else < ) = <> <= > >= then 
+FOLLOW[<statement_if>] = ; do end else 
+FOLLOW[<statement_while>] = ; do end else 
+FOLLOW[<statement_call>] = ; do end else 
+FOLLOW[<statement_read>] = ; do end else 
+FOLLOW[<statement_write>] = ; do end else 
+FOLLOW[<lexp>] = then do 
+FOLLOW[[else<statement>]] = ; do end else 
+FOLLOW[[<exp>{,<exp>}]] = ) 
+FOLLOW[{,<exp>}] = ) 
+FOLLOW[<lop>] = + - id ( 
+FOLLOW[[+|-]] = id ( 
+FOLLOW[<term>] = ; do end else < ) = <> <= > >= then + - 
+FOLLOW[{<aop><term>}] = ; do end else < ) = <> <= > >= then 
+FOLLOW[<aop>] = id ( 
+FOLLOW[<factor>] = ; do end else < ) = <> <= > >= then + - * / 
+FOLLOW[{<mop><factor>}] = ; do end else < ) = <> <= > >= then + - 
+FOLLOW[<mop>] = id ( 
+
+************************************Select******************************
+
+Select[1] = program 
+Select[2] = const var procedure begin 
+Select[3] = const 
+Select[4] = var procedure begin 
+Select[5] = var 
+Select[6] = procedure begin 
+Select[7] = procedure 
+Select[8] = begin 
+Select[9] = const 
+Select[10] = ; 
+Select[11] = ; 
+Select[12] = id 
+Select[13] = var 
+Select[14] = procedure 
+Select[15] = id 
+Select[16] = ) 
+Select[17] = ; 
+Select[18] = begin ; 
+Select[19] = begin 
+Select[20] = ; 
+Select[21] = end 
+Select[22] = id 
+Select[23] = if 
+Select[24] = while 
+Select[25] = call 
+Select[26] = read 
+Select[27] = write 
+Select[28] = begin 
+Select[29] = if 
+Select[30] = while 
+Select[31] = call 
+Select[32] = read 
+Select[33] = write 
+Select[34] = else 
+Select[35] = ; do end else 
+Select[36] = + - id ( 
+Select[37] = ) 
+Select[38] = ; 
+Select[39] = ; ) 
+Select[40] = ; 
+Select[41] = ) 
+Select[42] = + - id ( 
+Select[43] = odd 
+Select[44] = + - id ( 
+Select[45] = + 
+Select[46] = - 
+Select[47] = id ( 
+Select[48] = + - 
+Select[49] = ; do end else < ) = <> <= > >= then 
+Select[50] = id ( 
+Select[51] = * / 
+Select[52] = ; do end else < ) = <> <= > >= then + - 
+Select[53] = id 
+Select[54] = ( 
+Select[55] = = 
+Select[56] = <> 
+Select[57] = < 
+Select[58] = <= 
+Select[59] = > 
+Select[60] = >= 
+Select[61] = + 
+Select[62] = - 
+Select[63] = * 
+Select[64] = / 

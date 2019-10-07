@@ -1,4 +1,5 @@
 #include<bits/stdc++.h>
+#include "Define.h"
 using namespace std;
 
 /********************************
@@ -21,75 +22,8 @@ Version: 1.1.1
 3.对每个字符串进行处理，而非单个字符
 *******************************/
 
-#define NoUse -1
-
-/**************KeyWord********************/
-#define    KeyWord      0   //type
-
-#define    PROGRAM      1
-#define    CONST        2
-#define    VAR          3
-#define    PROCEDURE    4
-#define    BEGIN        5
-#define    END          6
-#define    IF           7
-#define    ELSE         8    
-#define    WHILE        9
-#define    DO           10
-#define    CALL         11
-#define    READ         12
-#define    WRITE        13
-#define    ODD          14
-#define    THEN         15
-
-
-/**************Operator*******************/
-#define     Operator    99      //type
-
-#define     ASSIGN      100     // :=
-#define     LESS_THAN   101     // <
-#define     LESS_EQUA   102     // <=
-#define     GRT_THAN    103     // >
-#define     GRT_EQUA    104     // >=
-#define     ADD         105     // +
-#define     SUB         106     // -
-#define     MUL         107     // *
-#define     DIV         108     // /
-#define     POWER       109     // ^
-#define     NOREQUA     110     // <>
-#define     EQUAL       111     // =
-
-/**************Boundary*******************/
-#define     Boundary     200     //type
-
-#define     LEFT_SBRA    201     // (
-#define     RIGHT_SBRA   202     // )
-#define     LEFT_MBRA    203     // [
-#define     RIGHT_MBRA   204     // ]
-#define     POINTER      205     // .
-#define     COMMA        206     // ,
-#define     SEMI         206     // ;
-
-
-/*************Identifier*******************/
-#define     IDENTIFIER          500     //type,include id and const number
-   
-/************NorTerMap start num**********/
-#define     NorTerBase      1000  //非终结符的起始数
-
-/************Grammer Special char************/
-#define     GRAMMAR_ARROW   2000  // ->
-#define     GRAMMAR_OR      2001  // |
-#define     GRAMMAR_NULL    2002  // $
-#define     GRAMMAR_END     2003  // #
-
-
-
-
-vector<string> KeyWords;
-
 string ProgramURL = "Program1.txt";  //Program file url
-string KeyWordsURL = "KeyWords.txt"; //keywords file url
+//string KeyWordsURL = "KeyWords.txt"; //keywords file url
 string OutFileURL = "LexAnalysisOutFile.txt"; //output file url
 
 
@@ -98,43 +32,38 @@ struct Word
     int row,col;//record the location of word
     int type;   //record the type of word
     int value;  //record the value of word
+    string content;
 };
-ofstream& operator<<(ofstream &out , Word &w)
+ostream& operator<<(ostream& out ,const Word& w)
 {
-    out<<"["<<w.row<<","<<w.col<<"] "<<w.type<<": "<<w.value;
+    out<<"["<<w.row<<","<<w.col<<"] "<<w.type<<": "<<w.value<<" "<<w.content;
     return out;
 }
 
 Word word;
 vector<Word> SourceWords;
 
+vector< pair<string,int> > KeyWordsMap;
 bool InitKeyWords(void)
 {
-    ifstream Inputfile(KeyWordsURL);
-    if(Inputfile.fail())
-    {
-        cout<<"Can't open the KeyWords file!"<<endl;
-        return false;
-    }
-
-    string TempStr;
-    while(!Inputfile.eof())
-    {
-        Inputfile>>TempStr;
-        KeyWords.push_back(TempStr);
-    }
-
-    //for(auto s : KeyWords)
-    //{
-    //    OutputFile<<s<<endl;
-    //}
-    //OutputFile<<KeyWords.size()<<endl;
-
-    cout<<"******************************************"<<endl;
-    cout<<"Init the KeyWords table Successfully!"<<endl;
-    cout<<"******************************************"<<endl;
-    Inputfile.close();
-    return true;    
+    KeyWordsMap.clear();
+    KeyWordsMap.push_back(make_pair("program",PROGRAM)); 
+    KeyWordsMap.push_back(make_pair("const",CONST)); 
+    KeyWordsMap.push_back(make_pair("var",VAR)); 
+    KeyWordsMap.push_back(make_pair("procedure",PROCEDURE)); 
+    KeyWordsMap.push_back(make_pair("begin",BEGIN)); 
+    KeyWordsMap.push_back(make_pair("end",END)); 
+    KeyWordsMap.push_back(make_pair("if",IF)); 
+    KeyWordsMap.push_back(make_pair("else",ELSE)); 
+    KeyWordsMap.push_back(make_pair("while",WHILE)); 
+    KeyWordsMap.push_back(make_pair("do",DO)); 
+    KeyWordsMap.push_back(make_pair("call",CALL)); 
+    KeyWordsMap.push_back(make_pair("read",READ)); 
+    KeyWordsMap.push_back(make_pair("write",WRITE)); 
+    KeyWordsMap.push_back(make_pair("odd",ODD)); 
+    KeyWordsMap.push_back(make_pair("then",THEN));
+    cout<<"*****************KeyWordsMap initial is ok!***************"<<endl;
+    return true;
 }
 
 bool IsBoundary(char ch)   //是否为边界符号
@@ -163,8 +92,8 @@ bool IsOperator(char ch)  //是否为运算符
 
 bool IsKeyWord(string s)   //判断是否为关键字
 {
-    for(auto k:KeyWords)
-        if(k == s)
+    for(auto k:KeyWordsMap)
+        if(k.first == s)
             return true;
     return false;
 }
@@ -172,7 +101,7 @@ bool IsKeyWord(string s)   //判断是否为关键字
 
 
 //对读取的一个字符串进行判断
-void Judge(string strToken,int row,int col,ofstream &OutputFile)  
+void Judge(string strToken,int row,int col)  
 {
     int len = strToken.size();
     int isvaild = 1;
@@ -184,11 +113,12 @@ void Judge(string strToken,int row,int col,ofstream &OutputFile)
                 continue;
             else
             {
-                OutputFile<<"*****Error: ["<<row<<","<<col-len<<"] illegal identifier : "<<strToken<<"*****"<<endl;
+                //OutputFile<<"*****Error: ["<<row<<","<<col-len<<"] illegal identifier : "<<strToken<<"*****"<<endl;
                 word.row = row;
                 word.col = col;
                 word.type = IDENTIFIER;
                 word.value = NoUse;
+                word.content = strToken;
                 isvaild = 0;
                 break;
             }           
@@ -196,27 +126,28 @@ void Judge(string strToken,int row,int col,ofstream &OutputFile)
         if(isvaild)  
         {
             bool iskey = false;
-            for(auto a : KeyWords)
+            for(auto a : KeyWordsMap)
             {
-                if(a == strToken)
+                if(a.first == strToken)
                 {
-                    OutputFile<<row<<" "<<col<<" $keyword   "<<strToken<<endl;
+                    //OutputFile<<row<<" "<<col<<" $keyword   "<<strToken<<endl;
                     word.row = row;
                     word.col = col;
-                    word.type = KeyWord;
-                    transform(strToken.begin(),strToken.end(),strToken.begin(),::toupper);
-                    word.value = strToken;
+                    word.type = KeyWord;                    
+                    word.value = a.second;
+                    word.content = strToken;
                     iskey = true;
                     break;
                 }                
             }
             if(!iskey)
             {
-                OutputFile<<row<<" "<<col<<" $identifier   "<<strToken<<endl;
+                //OutputFile<<row<<" "<<col<<" $identifier   "<<strToken<<endl;
                 word.row = row;
                 word.col = col;
                 word.type = IDENTIFIER;
                 word.value = NoUse;
+                word.content = strToken;
             }
         }
     }
@@ -229,25 +160,27 @@ void Judge(string strToken,int row,int col,ofstream &OutputFile)
                 continue;
             else
             {
-                OutputFile<<"*****Error: ["<<row<<","<<col-len<<"] illegal identifier : "<<strToken<<"*****"<<endl;
+                //OutputFile<<"*****Error: ["<<row<<","<<col-len<<"] illegal identifier : "<<strToken<<"*****"<<endl;
                 word.row = row;
                 word.col = col;
                 word.type = IDENTIFIER;
                 word.value = NoUse;
+                word.content = strToken;
                 isvaild = 0;
                 break;
             }            
         }
         if(isvaild)
         {
-            OutputFile<<row<<" "<<col<<" $const "<<strToken<<endl;
+            //OutputFile<<row<<" "<<col<<" $const "<<strToken<<endl;
             word.row = row;
             word.col = col;
             word.type = IDENTIFIER;
             word.value = NoUse;
+            word.content = strToken;
         }
     }
-    SourceWords.push_back(word);
+    SourceWords.push_back(word);  
 }
 
 
@@ -265,26 +198,27 @@ bool LexAnalysis()
         return false;
     }
     
-    ofstream OutputFile(OutFileURL);
-    if(OutputFile.fail())
-    {
-        cout<<"Can't open the OutputFile!"<<endl;
-        return false;
-    }
+    //ofstream //OutputFile(OutFileURL);
+    //if(OutputFile.fail())
+    //{
+    //    cout<<"Can't open the //OutputFile!"<<endl;
+    //    return false;
+    //}
 
     string  LineCode;                       //read one line from source code file
     string  strToken;                       //temp string
     //getline(InputFile,LineCode);
-    //OutputFile<<LineCode<<endl;
+    ////OutputFile<<LineCode<<endl;
 
     int row = 0;                            //row number
     int col = 0;                            //col number
-    char curch,nextch;                      //pre search
+    char curch,nextch;                      //nextch use for pre search
+
     while(!InputFile.eof())
     {
         getline(InputFile,LineCode);        //读取一行
         row++;                              //行号+1
-        col = 0;                            //列好从0开始
+        col = 0;                            //列从0开始
         while(LineCode[col] != '\0')        //没有到行尾
         {
             curch = LineCode[col++];        //当前判断的字符
@@ -303,7 +237,7 @@ bool LexAnalysis()
                    curch = LineCode[col++];
                }
                col--;
-               Judge(strToken,row,col,OutputFile);
+               Judge(strToken,row,col);
                     /*
                     while(IsLetter(curch)||IsNumber(curch) || curch == '_') 
                     {
@@ -315,12 +249,12 @@ bool LexAnalysis()
                     // xy4可以识别，xy4$不可以
                     if(IsKeyWord(strToken))
                     {
-                        OutputFile<<"$关键字  "<<strToken<<endl;
+                        //OutputFile<<"$关键字  "<<strToken<<endl;
                         strToken.clear();
                     }
                     else
                     {
-                        OutputFile<<"$标识符 "<<strToken<<endl;
+                        //OutputFile<<"$标识符 "<<strToken<<endl;
                         strToken.clear();
                     } 
                 
@@ -335,7 +269,7 @@ bool LexAnalysis()
                         curch = LineCode[col++];
                     }
                     col--;   //回退一个
-                    OutputFile<<"$常数  "<<strToken<<endl; 
+                    //OutputFile<<"$常数  "<<strToken<<endl; 
                 */
             }   
             else if(curch == '/')  //处理注释和除法，可能没有注释？
@@ -345,165 +279,198 @@ bool LexAnalysis()
                         col++;
                 else  //除法
                 {
-                    OutputFile<<row<<" "<<col<<" $operator "<<curch<<endl;
+                    //OutputFile<<row<<" "<<col<<" $operator "<<curch<<endl;
                     word.row = row;
                     word.col = col;
                     word.type = Operator;
                     word.value = DIV;
+                    word.content = curch;
+                    SourceWords.push_back(word);  
                 }                
             }
             else if(curch == '+')  //加法
             {
-                OutputFile<<row<<" "<<col<<" $operator "<<curch<<endl;                
+                //OutputFile<<row<<" "<<col<<" $operator "<<curch<<endl;                
                 word.row = row;
                 word.col = col;
                 word.type = Operator;
                 word.value = ADD;
+                word.content = curch;
+                SourceWords.push_back(word);  
             }
             else if(curch == '-') //减法
             {
-                OutputFile<<row<<" "<<col<<" $operator "<<curch<<endl;
+                //OutputFile<<row<<" "<<col<<" $operator "<<curch<<endl;
                 word.row = row;
                 word.col = col;
                 word.type = Operator;
                 word.value = SUB;
+                word.content = curch;
+                SourceWords.push_back(word);  
             }
             else if(curch == '*')  //乘法
             {
-                OutputFile<<row<<" "<<col<<" $operator "<<curch<<endl;
+                //OutputFile<<row<<" "<<col<<" $operator "<<curch<<endl;
                 word.row = row;
                 word.col = col;
                 word.type = Operator;
                 word.value = MUL;
+                word.content = curch;
+                SourceWords.push_back(word);  
             }
             else if(curch == '^')  //乘方
             {
-                OutputFile<<row<<" "<<col<<" $operator "<<curch<<endl;
+                //OutputFile<<row<<" "<<col<<" $operator "<<curch<<endl;
                 word.row = row;
                 word.col = col;
                 word.type = Operator;
                 word.value = POWER ;
+                word.content = curch;
+                SourceWords.push_back(word);  
             }
             else if(curch == ':')  //
             {
                 if(nextch == '=')  //赋值
                 {                    
-                    OutputFile<<row<<" "<<col<<" $operator "<<curch<<nextch<<endl;
+                    //OutputFile<<row<<" "<<col<<" $operator "<<curch<<nextch<<endl;
                     word.row = row;
                     word.col = col;
                     word.type = Operator;
                     word.value = ASSIGN;
+                    word.content = ":=";
+                    SourceWords.push_back(word);  
                     col++;
                 }
                 else //出错
                 {
-                    OutputFile<<"********Error: ["<<row<<","<<col+1<<"] Maybe miss '='  *******"<<endl;
+                    //OutputFile<<"********Error: ["<<row<<","<<col+1<<"] Maybe miss '='  *******"<<endl;
                     word.row = row;
                     word.col = col;
                     word.type = Operator;
                     word.value = ASSIGN;
+                    word.content = curch;
+                    SourceWords.push_back(word);  
                 }                
             }
             else if(curch == '<')
             {
                 if(nextch == '=')  //小于等于
                 {
-                    OutputFile<<row<<" "<<col<<" $operator "<<curch<<nextch<<endl;
+                    //OutputFile<<row<<" "<<col<<" $operator "<<curch<<nextch<<endl;
                     word.row = row;
                     word.col = col;
                     word.type = Operator;
                     word.value = LESS_EQUA; //<=
+                    word.content = "<=";
+                    SourceWords.push_back(word);  
                     col++;
                 }
                 else if(nextch == '>') //不等于
                 {
-                    OutputFile<<row<<" "<<col<<" $operator "<<curch<<nextch<<endl;
+                    //OutputFile<<row<<" "<<col<<" $operator "<<curch<<nextch<<endl;
                     word.row = row;
                     word.col = col;
                     word.type = Operator;
                     word.value = NOREQUA; //<>
+                    word.content = "<>";
+                    SourceWords.push_back(word);  
                     col++;
                 }
                 else  //小于
                 {
-                    OutputFile<<row<<" "<<col<<" $operator "<<curch<<endl;
+                    //OutputFile<<row<<" "<<col<<" $operator "<<curch<<endl;
                     word.row = row;
                     word.col = col;
                     word.type = Operator;
                     word.value = LESS_THAN;
+                    word.content = curch; 
+                    SourceWords.push_back(word);                     
                 }                
             }
             else if(curch == '>')
             {
                 if(nextch == '=') //大于等于
                 {
-                    OutputFile<<row<<" "<<col<<" $operator "<<curch<<nextch<<endl;
+                    //OutputFile<<row<<" "<<col<<" $operator "<<curch<<nextch<<endl;
                     word.row = row;
                     word.col = col;
                     word.type = Operator;
                     word.value = GRT_EQUA;
+                    word.content = ">=";
+                    SourceWords.push_back(word);  
                     col++;
                 }
                 else  //大于
                 {
-                    OutputFile<<row<<" "<<col<<" $operator "<<curch<<endl;
+                    //OutputFile<<row<<" "<<col<<" $operator "<<curch<<endl;
                     word.row = row;
                     word.col = col;
                     word.type = Operator;
                     word.value = GRT_THAN;
+                    word.content = ">=";
+                    SourceWords.push_back(word);  
                 }                
             }
             else if(curch == ',')
             {
-                OutputFile<<row<<" "<<col<<" $boundary "<<curch<<endl;
+                //OutputFile<<row<<" "<<col<<" $boundary "<<curch<<endl;
                 word.row = row;
                 word.col = col;
                 word.type = Boundary;
                 word.value = COMMA;
+                word.content = curch;
+                SourceWords.push_back(word);  
             }
             else if(curch == ';')
             {
-                OutputFile<<row<<" "<<col<<" $boundary "<<curch<<endl;
+                //OutputFile<<row<<" "<<col<<" $boundary "<<curch<<endl;
                 word.row = row;
                 word.col = col;
                 word.type = Boundary;
                 word.value = SEMI;
+                word.content = curch;
+                SourceWords.push_back(word);  
             }
             else if(curch == '(')
             {
-                OutputFile<<row<<" "<<col<<" $boundary "<<curch<<endl;
+                //OutputFile<<row<<" "<<col<<" $boundary "<<curch<<endl;
                 word.row = row;
                 word.col = col;
                 word.type = Boundary;
                 word.value = LEFT_SBRA;
+                word.content = curch;
+                SourceWords.push_back(word);  
             }
             
             else if(curch == ')')
             {
-                OutputFile<<row<<" "<<col<<" $boundary "<<curch<<endl;
+                //OutputFile<<row<<" "<<col<<" $boundary "<<curch<<endl;
                 word.row = row;
                 word.col = col;
                 word.type = Boundary;
                 word.value = RIGHT_SBRA;
+                word.content = curch;
+                SourceWords.push_back(word);  
             }         
             else if(curch == '=')
             {
-                 OutputFile<<row<<" "<<col<<" $Operator "<<curch<<endl;
+                 //OutputFile<<row<<" "<<col<<" $Operator "<<curch<<endl;
                  word.row = row;
                  word.col = col;
                  word.type = Operator;
-                 word.value = EQUAL;                    
+                 word.value = EQUAL;
+                 word.content = curch;
+                 SourceWords.push_back(word);                      
             }
             else
             {
-                OutputFile<<"*****Error: ["<<row<<","<<col<<"] illegal char "<<curch<<"  ***** "<<endl;             
-            } 
-            SourceWords.push_back(word);           
+                //OutputFile<<"*****Error: ["<<row<<","<<col<<"] illegal char "<<curch<<"  ***** "<<endl;             
+            }           
         }
     }
 
     InputFile.close();
-    OutputFile.close();
+    //OutputFile.close();
     cout<<"Lexical Analysis is finished!"<<endl;
     cout<<"Output file is generated successfully!"<<endl;
 
@@ -511,7 +478,7 @@ bool LexAnalysis()
 
 }
 
-int main()
+int LexAnaly()
 {
     SourceWords.clear();
 
@@ -522,5 +489,9 @@ int main()
     }
     LexAnalysis();
 
+    //cout<<word;
+//    int i = 1;
+//    for(auto a : SourceWords)
+//       cout<<i++<<" "<<a<<endl;
     return 0;
 }
