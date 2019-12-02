@@ -22,7 +22,7 @@ Version: 1.1.1
 3.对每个字符串进行处理，而非单个字符
 *******************************/
 
-string ProgramURL = "Program1.txt";  //Program file url
+string ProgramURL = "1.txt";  //Program file url
 //string KeyWordsURL = "KeyWords.txt"; //keywords file url
 string OutFileURL = "LexAnalysisOutFile.txt"; //output file url
 
@@ -62,6 +62,7 @@ bool InitKeyWords(void)
     KeyWordsMap.push_back(make_pair("write",WRITE)); 
     KeyWordsMap.push_back(make_pair("odd",ODD)); 
     KeyWordsMap.push_back(make_pair("then",THEN));
+
     cout<<"*****************KeyWordsMap initial is ok!***************"<<endl;
     return true;
 }
@@ -183,7 +184,7 @@ void Judge(string strToken,int row,int col)
     SourceWords.push_back(word);  
 }
 
-
+//词法分析入口
 bool LexAnalysis()
 {
     //ifstream InputFile(ProgramURL);
@@ -490,8 +491,8 @@ int LexAnaly()
     LexAnalysis();
 
     //cout<<word;
-//    int i = 1;
-//    for(auto a : SourceWords)
-//       cout<<i++<<" "<<a<<endl;
+    //int i = 1;
+    //for(auto a : SourceWords)
+    //   cout<<i++<<" "<<a<<endl;
     return 0;
 }
